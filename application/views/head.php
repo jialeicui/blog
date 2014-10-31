@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="style/css/main.css">
     </head>
     <body>
-        <div class="container">
+        <div class="container full-height">
             <div class="head_nav">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class="active"><a href="#">Home</a></li>

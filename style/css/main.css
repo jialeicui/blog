@@ -1,11 +1,30 @@
+html,
+body,
+form,
+.full-height {
+    height: 100%;
+}
 
-.article_input {
-    margin-top: 10px;
+.article_title {
     margin-bottom: 10px;
-    height: 300px;
+}
+
+.article_content {
+    height: 100%;
+}
+
+.source {
     width: 100%;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
 }
 
 .head_nav {
     margin-bottom: 10px;
+}
+
+.preview {
+    padding-left: 3px;
+    overflow: auto;
+    border-radius: 4px;
 }

@@ -13,6 +13,8 @@ class post extends CI_Controller {
     public function submit()
     {
         $post = $this->input->post();
+        $this->load->model('data_model');
+        $this->data_model->save($post);
     }
 }
 
