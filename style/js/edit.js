@@ -71,6 +71,15 @@
     // $('.result-src-content').html(window.hljs.highlight('html', mdSrc.render(source)).value);
   }
 
+  function render_article()
+  {
+    var content = $('.content').text();
+    // $('.content').addClass('hidden');
+    if (content) {
+      $('.show_article').html(mdHtml.render(content));
+    };
+  }
+
 
   $(function() {
     // highlight snippet
@@ -147,5 +156,6 @@
     });
 
     updateResult();
+    render_article();
   });
 })();

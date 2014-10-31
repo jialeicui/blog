@@ -1,8 +1,8 @@
 <form class="form-signin" action="<?php echo site_url('post/submit');?>" accept-charset="utf-8" method="post">
     <input type="text" class="form-control article_title" placeholder="标题" name="title">
-    <div class="row full-height">
-    <div class="col-xs-6 full-height">
-    <textarea class="source full-height article_content" name="content">
+    <div class="row">
+        <div class="col-xs-6">
+            <textarea class="source article_content" name="content" rows="27">
 以1G的大页为例
 
 检查是否可以配置1G的大页
@@ -29,16 +29,12 @@ HugePages_Surp:        0
 Hugepagesize:    1048576 kB
 #
 ```
-    </textarea>
+            </textarea>
+            <button type="submit" class="btn btn-info pull-right">保存</button>
+        </div>
+        <section class="col-xs-6">
+            <div class="preview"></div>
+        </section>
     </div>
-    <section class="col-xs-6 full-height">
-        <div class="preview"></div>
-    </section>
-    </div>
-    <!-- <button type="submit" class="btn btn-info pull-right">保存</button> -->
 </form>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/8.2/styles/solarized_light.css">
-<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/highlight.js/8.2/highlight.min.js"></script>
-<script src="style/js/remarkable.js"></script>
-<script src="style/js/edit.js"></script>
+
