@@ -4213,7 +4213,8 @@ module.exports = function heading(state, startLine, endLine, silent) {
     ch = state.src.charCodeAt(++pos);
   }
 
-  if (level > 6 || (pos < max && ch !== 0x20/* space */)) { return false; }
+  // space after '#' is also ok
+  // if (level > 6 || (pos < max && ch !== 0x20/* space */)) { return false; }
 
   if (silent) { return true; }
 

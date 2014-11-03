@@ -9,6 +9,17 @@ form {
     overflow: hidden;
 }
 
+.about_ul {
+    display: block;
+    padding-left: 0;
+}
+
+.about_ul>li {
+    float: left;
+    list-style: none;
+    margin-left: 30px;
+}
+
 .article_title {
     margin-bottom: 10px;
 }
@@ -31,4 +42,13 @@ form {
     padding-left: 3px;
     overflow: auto;
     border-radius: 4px;
+}
+
+.about_img {
+    height: 32px;
+    width: 32px;
+}
+
+.about_name {
+    font-size: 16px;
 }

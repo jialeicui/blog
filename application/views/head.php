@@ -10,10 +10,11 @@
         <link rel="stylesheet" href="style/css/main.css">
     </head>
     <body>
-        <div class="container full-height">
+        <div class="container col-xs-12 col-sm-6 col-md-8 col-md-offset-2 col-sm-offset-3">
             <div class="head_nav">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation"><a href="#">About</a></li>
+                    <li role="presentation" class=""><a href="<?php echo site_url('home');?>">Home</a></li>
+                    <li role="presentation" class=""><a href="<?php echo site_url('post');?>">New</a></li>
+                    <li role="presentation"><a href="<?php echo site_url('about');?>">About</a></li>
                 </ul>
             </div>
