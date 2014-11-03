@@ -4,9 +4,20 @@ body,
     height: 100%;
 }
 
+body {
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    font-size: 18px;
+}
+
 form {
     height: 100%;
     overflow: hidden;
+}
+
+/*覆盖bootstrap的风格*/
+pre {
+    font-size: inherit;
+    border: none;
 }
 
 .about_ul {
