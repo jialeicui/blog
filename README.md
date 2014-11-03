@@ -6,3 +6,6 @@ blog
 使用[remarkable](https://github.com//jonschlinkert/remarkable)进行渲染  
 代码高亮[Highlight.js](https://github.com/isagalaev/highlight.js)  
 页面风格[Bootstrap](https://github.com/twbs/bootstrap)  
+
+
+[demo](http://yadam.sinaapp.com/home)
