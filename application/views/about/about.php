@@ -3,8 +3,7 @@
         <?php foreach($link as $one): ?>
             <li>
                 <a href="<?php echo $one->href; ?>" target="_blank">
-                    <img src="<?php echo $one->img; ?>" class="about_img">
-                    <?php if($one->name) {?> <span class="about_name"><?php echo $one->name; ?></span><?php }?>
+                    <img src="<?php echo $one->img; ?>" class="about_img" title="<?php echo $one->name; ?>">
                 </a>
             </li>
         <?php endforeach;?> 

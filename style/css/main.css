@@ -60,6 +60,16 @@ pre {
     width: 32px;
 }
 
-.about_name {
+.login {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
     font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
 }
