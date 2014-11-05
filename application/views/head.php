@@ -14,7 +14,9 @@
             <div class="head_nav">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class=""><a href="<?php echo site_url('home');?>">Home</a></li>
-                    <li role="presentation" class=""><a href="<?php echo site_url('post');?>">New</a></li>
+                    <?php if (isset($admin) && $admin) { ?>
+                        <li role="presentation" class=""><a href="<?php echo site_url('post');?>">New</a></li>
+                    <?php }?>
                     <li role="presentation"><a href="<?php echo site_url('about');?>">About</a></li>
                 </ul>
             </div>

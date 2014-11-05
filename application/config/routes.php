@@ -42,6 +42,7 @@ $route['default_controller'] = "home";
 $route['404_override'] = '';
 
 $route['article/(:num)'] = "home/article/$1";
+$route['post'] = "log/new_article";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

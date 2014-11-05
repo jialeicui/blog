@@ -23,12 +23,15 @@ class log extends CI_Controller {
         redirect('/');
     }
 
-    public function index()
+    public function index($url = NULL)
     {
+        if($url == NULL) {
+            $url = '/';
+        }
         if (!$this->_is_loggedin()) {
             redirect($this->log_url);
         }else{
-            redirect('/');
+            redirect($url);
         }
     }
 
@@ -47,6 +50,25 @@ class log extends CI_Controller {
             $this->load->view('admin/login', $data, FALSE);
             $this->load->view('foot');
         }
+    }
+
+    public function new_article()
+    {
+        if (!$this->_is_loggedin()) {
+            redirect($this->log_url);
+        }
+        $data['title'] = "new";
+        $data['admin'] = true;
+        $this->load->view('head', $data);
+        $this->load->view('content/post', $data);
+        $this->load->view('foot');
+    }
+
+    public function submit()
+    {
+        $post = $this->input->post();
+        $this->load->model('data_model');
+        $this->data_model->save($post);
     }
 }
 
