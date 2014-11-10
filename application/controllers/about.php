@@ -10,8 +10,13 @@ class about extends CI_Controller {
     public function index($id = NULL)
     {
         $query = $this->data_model->get_about();
-        $data['link'] = $query;
-        $data['title'] = 'about';
+        
+        $this->load->library('auth');
+
+        $data['loggedin'] = $this->auth->is_loggedin();
+        $data['link']     = $query;
+        $data['title']    = 'about';
+
         $this->load->view('head', $data);
         $this->load->view('about/about', $data, FALSE);
         $this->load->view('foot');        

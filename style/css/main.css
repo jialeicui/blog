@@ -73,3 +73,11 @@ pre {
     margin-bottom: 15px;
     padding: 7px 9px;
 }
+
+.text-admin {
+    color: #5cb85c;
+}
+
+.text-login {
+    color: #FFF;
+}

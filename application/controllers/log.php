@@ -5,21 +5,17 @@ class log extends CI_Controller {
     {
         parent::__construct();
         $this->log_url = get_class($this).'/login';
+        $this->load->library('auth');
     }
 
     private function _is_loggedin()
     {
-        return $this->session->userdata('loggedin');
-    }
-
-    private function _set_loggedin()
-    {
-        $this->session->set_userdata('loggedin', true);
+        return $this->auth->is_loggedin();
     }
 
     public function logout()
     {
-        $this->session->set_userdata('loggedin', false);
+        $this->auth->logout();
         redirect('/');
     }
 
@@ -39,10 +35,7 @@ class log extends CI_Controller {
     {
         $post = $this->input->post();
         if ($post) {
-            $this->load->model('user_model');
-            if ($this->user_model->authenticate($post['id'], $post['pwd'])) {
-                $this->_set_loggedin();
-            }
+            $this->auth->login($post['id'], $post['pwd']);
             return $this->index();
         }else{
             $data['title'] = 'login';
@@ -57,6 +50,10 @@ class log extends CI_Controller {
         if (!$this->_is_loggedin()) {
             redirect($this->log_url);
         }
+
+        $this->load->library('auth');
+
+        $data['loggedin'] = $this->auth->is_loggedin();
         $data['title'] = "new";
         $data['admin'] = true;
         $this->load->view('head', $data);
