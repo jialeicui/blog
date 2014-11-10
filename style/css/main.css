@@ -20,6 +20,11 @@ pre {
     border: none;
 }
 
+h2, h3, h4 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
 .about_ul {
     display: block;
     padding-left: 0;
@@ -80,4 +85,13 @@ pre {
 
 .text-login {
     color: #FFF;
+}
+
+/* bootstrap table */
+.table {
+    border:1px solid #ddd;
+}
+
+.table th,td {
+    border:1px solid #ddd;
 }

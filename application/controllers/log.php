@@ -51,8 +51,6 @@ class log extends CI_Controller {
             redirect($this->log_url);
         }
 
-        $this->load->library('auth');
-
         $data['loggedin'] = $this->auth->is_loggedin();
         $data['title'] = "new";
         $data['admin'] = true;
@@ -63,6 +61,9 @@ class log extends CI_Controller {
 
     public function submit()
     {
+        if(!$this->auth->is_loggedin()) {
+            redirect($this->log_url);
+        }
         $post = $this->input->post();
         $this->load->model('data_model');
         $this->data_model->save($post);
