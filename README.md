@@ -8,4 +8,6 @@ blog
 页面风格[Bootstrap](https://github.com/twbs/bootstrap)  
 
 
-[demo](http://yadam.sinaapp.com/home)
+[demo](http://yadam.sinaapp.com/home)  
+username:admin  
+password:admin
