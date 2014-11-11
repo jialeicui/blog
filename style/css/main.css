@@ -100,3 +100,29 @@ h2, h3, h4 {
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.article-list {
+    margin-bottom: -1px;
+}
+
+.article-list>:first-child {
+    width: 100%;
+}
+
+.article-list>:not(:first-child) {
+    min-width: 0;
+    white-space:nowrap;
+    width: 40px;
+}
+
+.article-list>:not(:first-child)>.btn {
+    border-left: 0;
+}
+
+.btn {
+    font-size: inherit;
+}
+
+.btn-artile {
+    text-align: left;
+}

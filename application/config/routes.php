@@ -42,9 +42,9 @@ $route['default_controller'] = "home";
 $route['404_override'] = '';
 
 $route['article/(:num)'] = "home/article/$1";
-$route['post/(:any)'] = "log/$1";
-$route['post'] = "log/new_article";
-
+$route['post/(:any)'] = "article/$1";
+$route['post'] = "article/add_new";
+$route['edit/(:num)'] = "article/edit/$1";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

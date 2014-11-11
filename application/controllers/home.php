@@ -23,8 +23,7 @@ class home extends CI_Controller {
     {
         $query = $this->data_model->get_by_id($id);
         if (!$query) {
-            echo "no article";
-            return;
+            die("no article");
         }
 
         $data['title'] = $query->title;

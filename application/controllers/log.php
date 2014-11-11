@@ -8,11 +8,6 @@ class log extends CI_Controller {
         $this->load->library('auth');
     }
 
-    private function _is_loggedin()
-    {
-        return $this->auth->is_loggedin();
-    }
-
     public function logout()
     {
         $this->auth->logout();
@@ -24,7 +19,7 @@ class log extends CI_Controller {
         if($url == NULL) {
             $url = '/';
         }
-        if (!$this->_is_loggedin()) {
+        if (!$this->auth->is_loggedin()) {
             redirect($this->log_url);
         }else{
             redirect($url);
@@ -43,30 +38,6 @@ class log extends CI_Controller {
             $this->load->view('admin/login', $data, FALSE);
             $this->load->view('foot');
         }
-    }
-
-    public function new_article()
-    {
-        if (!$this->_is_loggedin()) {
-            redirect($this->log_url);
-        }
-
-        $data['loggedin'] = $this->auth->is_loggedin();
-        $data['title'] = "new";
-        $data['admin'] = true;
-        $this->load->view('head', $data);
-        $this->load->view('content/post', $data);
-        $this->load->view('foot');
-    }
-
-    public function submit()
-    {
-        if(!$this->auth->is_loggedin()) {
-            redirect($this->log_url);
-        }
-        $post = $this->input->post();
-        $this->load->model('data_model');
-        $this->data_model->save($post);
     }
 }
 

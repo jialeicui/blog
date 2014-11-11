@@ -16,7 +16,13 @@ class data_model extends CI_Model {
 
     public function save($data)
     {
-        $this->db->insert($this->blog_table, $data);
+        if (isset($data['id'])) {
+            //如果设置了id, 则更新
+            $this->db->where('id', $data['id']);
+            $this->db->update($this->blog_table, $data); 
+        } else {
+            $this->db->insert($this->blog_table, $data);
+        }
     }
 
     public function get_by_id($id)
