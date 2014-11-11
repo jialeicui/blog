@@ -28,11 +28,23 @@ class home extends CI_Controller {
         }
 
         $data['title'] = $query->title;
-        $data['content'] = $query->content;
+        $data['content'] = $this->_get_content($query->title, $query->content);
         $this->_add_log_info($data);
         $this->load->view('head', $data);
         $this->load->view('content/article', $data, FALSE);
         $this->load->view('foot');
+    }
+
+    private function _get_content($title, $content)
+    {
+        $this->load->config('blog');
+        $show_title = $this->config->item('show_title');
+        if ($show_title) {
+            $format = $this->config->item('title_content_format');
+            return sprintf($format, $title, $content);
+        } else {
+            return $content;
+        }
     }
 
     private function _add_log_info(&$data)

@@ -95,3 +95,8 @@ h2, h3, h4 {
 .table th,td {
     border:1px solid #ddd;
 }
+
+.show_article {
+    margin-left: 10px;
+    margin-right: 10px;
+}
