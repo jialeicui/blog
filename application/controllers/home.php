@@ -9,7 +9,7 @@ class home extends CI_Controller {
 
     public function index($id = NULL)
     {
-        $query = $this->data_model->get_all_article();
+        $query = $this->data_model->get_all_article($this->_is_logged_in());
 
         $data['articles'] = $query;
         $data['title'] = '列表';
@@ -46,11 +46,17 @@ class home extends CI_Controller {
         }
     }
 
-    private function _add_log_info(&$data)
+    private function _is_logged_in()
     {
         $this->load->library('auth');
-        $data['loggedin'] = $this->auth->is_loggedin();
+        return $this->auth->is_loggedin();
     }
+
+    private function _add_log_info(&$data)
+    {
+        $data['loggedin'] = $this->_is_logged_in();
+    }
+
 }
 
 /* End of file home.php */

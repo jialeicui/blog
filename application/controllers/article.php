@@ -7,6 +7,7 @@ class Article extends CI_Controller {
         parent::__construct();
         $this->load->library('auth');
         $this->load->model('data_model');
+        $this->status_key = 'status';
 
         if(!$this->auth->is_loggedin()) {
             redirect('log/login');
@@ -47,6 +48,25 @@ class Article extends CI_Controller {
         $this->load->view('head', $data);
         $this->load->view('content/post', $data);
         $this->load->view('foot');
+    }
+
+    public function change_status($id = NULL)
+    {
+        if ($id) {
+            $query = $this->data_model->get_by_id($id);
+            $status = $this->_get_opp_status($query->{$this->status_key});
+            $this->data_model->update_field($id, $this->status_key, $status);
+        }
+        redirect('/');
+    }
+
+    private function _get_opp_status($status)
+    {
+        if ($status == 'show') {
+            return 'hide';
+        } else {
+            return 'show';
+        }
     }
 }
 

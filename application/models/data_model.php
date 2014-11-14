@@ -27,18 +27,27 @@ class data_model extends CI_Model {
 
     public function get_by_id($id)
     {
-        $query = $this->db->get_where($this->blog_table, array('id' =>$id));
+        $query = $this->db->get_where($this->blog_table, array('id' =>$id, 'status'=>'show'));
         return $query->row();
     }
 
-    public function get_all_article()
+    public function get_all_article($all_status = false)
     {
-        return $this->_get_all($this->blog_table);
+        if ($all_status) {
+            return $this->_get_all($this->blog_table);
+        } else {
+            return $this->db->get_where($this->blog_table, array('status'=>'show'))->result();
+        }
     }
 
     public function get_about()
     {
         return $this->_get_all($this->about_table);
+    }
+
+    public function update_field($id, $key, $value)
+    {
+        return $this->db->update($this->blog_table, array($key => $value), array('id' => $id));
     }
 }
 
