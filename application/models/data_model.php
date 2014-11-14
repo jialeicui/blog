@@ -25,9 +25,13 @@ class data_model extends CI_Model {
         }
     }
 
-    public function get_by_id($id)
+    public function get_by_id($id, $all_status = false)
     {
-        $query = $this->db->get_where($this->blog_table, array('id' =>$id, 'status'=>'show'));
+        $condition = array('id' =>$id);
+        if (!$all_status) {
+            $condition['status'] = 'show';
+        }
+        $query = $this->db->get_where($this->blog_table, $condition);
         return $query->row();
     }
 

@@ -53,9 +53,11 @@ class Article extends CI_Controller {
     public function change_status($id = NULL)
     {
         if ($id) {
-            $query = $this->data_model->get_by_id($id);
-            $status = $this->_get_opp_status($query->{$this->status_key});
-            $this->data_model->update_field($id, $this->status_key, $status);
+            $query = $this->data_model->get_by_id($id, true);
+            if($query) {
+                $status = $this->_get_opp_status($query->{$this->status_key});
+                $this->data_model->update_field($id, $this->status_key, $status);
+            }
         }
         redirect('/');
     }
