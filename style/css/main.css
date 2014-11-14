@@ -1,0 +1,128 @@
+html,
+body,
+.full-height {
+    height: 100%;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Microsoft Yahei, Hiragino Sans GB, WenQuanYi Micro Hei, sans-serif;
+    font-size: 18px;
+}
+
+form {
+    height: 100%;
+    overflow: hidden;
+}
+
+/*覆盖bootstrap的风格*/
+pre {
+    font-size: inherit;
+    border: none;
+}
+
+h2, h3, h4 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.about_ul {
+    display: block;
+    padding-left: 0;
+}
+
+.about_ul>li {
+    float: left;
+    list-style: none;
+    margin-left: 30px;
+}
+
+.article_title {
+    margin-bottom: 10px;
+}
+
+.article_content {
+    height: 100%;
+}
+
+.source {
+    width: 100%;
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    font-size: 13px;
+}
+
+.head_nav {
+    margin-bottom: 10px;
+}
+
+.preview {
+    padding-left: 3px;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+.about_img {
+    height: 32px;
+    width: 32px;
+}
+
+.login {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+    font-size: 16px;
+    height: auto;
+    margin-bottom: 15px;
+    padding: 7px 9px;
+}
+
+.text-admin {
+    color: #5cb85c;
+}
+
+.text-login {
+    color: #FFF;
+}
+
+/* bootstrap table */
+.table {
+    border:1px solid #ddd;
+}
+
+.table th,td {
+    border:1px solid #ddd;
+}
+
+.show_article {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.article-list {
+    margin-bottom: -1px;
+}
+
+.article-list>:first-child {
+    width: 100%;
+}
+
+.article-list>:not(:first-child) {
+    min-width: 0;
+    white-space:nowrap;
+    width: 40px;
+}
+
+.article-list>:not(:first-child)>.btn {
+    border-left: 0;
+}
+
+.btn {
+    font-size: inherit;
+}
+
+.btn-artile {
+    text-align: left;
+}
