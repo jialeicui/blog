@@ -28,7 +28,8 @@ class Article extends CI_Controller {
     {
         $post = $this->input->post();
         $this->load->model('data_model');
-        $this->data_model->save($post);
+        $id = $this->data_model->save($post);
+        redirect('article/'.$id);
     }
 
     public function edit($id = NULL)

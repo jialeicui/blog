@@ -16,7 +16,7 @@ class home extends CI_Controller {
         $this->_add_log_info($data);
         $this->load->view('head', $data);
         $this->load->view('content/list', $data, FALSE);
-        $this->load->view('foot');        
+        $this->load->view('foot');
     }
 
     public function article($id = NULL)
