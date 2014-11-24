@@ -1,4 +1,4 @@
-<div>
+<div class="about">
     <ul class="about_ul">
         <?php foreach($link as $one): ?>
             <li>

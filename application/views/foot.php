@@ -1,3 +1,4 @@
+        <br/>
         <footer class="footer_content">
           Copyright © 2014 - yadam - 
           Special thanks to
