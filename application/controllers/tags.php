@@ -28,6 +28,10 @@ class Tags extends CI_Controller {
     public function show($tag)
     {
         $query = $this->data_model->get_article_by_tag_name($tag);
+        $data['articles'] = $query;
+        $this->load->view('head', $data);
+        $this->load->view('content/list', $data, FALSE);
+        $this->load->view('foot');
     }
 }
 

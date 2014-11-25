@@ -14,6 +14,7 @@
             <div class="head_nav">
                 <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" class=""><a href="<?php echo site_url('home');?>">Home</a></li>
+                    <li role="presentation"><a href="<?php echo site_url('tags');?>">Tags</a></li>
                     <li role="presentation"><a href="<?php echo site_url('about');?>">About</a></li>
                     <?php if (isset($loggedin) && $loggedin) { ?>
                         <li role="presentation" class="pull-right">

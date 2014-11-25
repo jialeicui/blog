@@ -73,7 +73,7 @@ class data_model extends CI_Model {
             return $ret;
         }
 
-        $query = $this->db->query('select A.id,A.title from '.$this->articles_table.' as A,'.$this->tag_article_map_table.' as M where A.id=M.article_id and M.tag_id='.$tag_info->id)->result_array();
+        $query = $this->db->query('select A.id,A.title from '.$this->articles_table.' as A,'.$this->tag_article_map_table.' as M where A.id=M.article_id and M.tag_id='.$tag_info->id)->result();
 
         return $query;
     }
