@@ -130,7 +130,8 @@ class data_model extends CI_Model {
 
         //remove tags
         if ($to_rm) {
-            $qstr = sprintf('delete from %s where tag_id in (%s)', $this->tag_article_map_table, implode(',', $to_rm));
+            $qstr = sprintf('delete from %s where tag_id in (%s) and article_id=%s', 
+                            $this->tag_article_map_table, implode(',', $to_rm), $article_id);
             $this->db->query($qstr);
         }
 
