@@ -36,3 +36,4 @@
                     <?php }?>
                 </ul>
             </div>
+            <div class='blog_main'>

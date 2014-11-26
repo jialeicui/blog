@@ -1,7 +1,16 @@
 <form class="form-signin" action="<?php echo site_url('post/submit');?>" accept-charset="utf-8" method="post">
-    <input type="text" class="form-control article_title" placeholder="标题" name="title" <?php if (isset($article_title)) {
-        echo 'value="'.$article_title.'"';
-    }?>>
+    <div class="row">
+        <div class="col-lg-8">
+        <input type="text" class="form-control" placeholder="Title" name="title" <?php if (isset($article_title)) {
+            echo 'value="'.$article_title.'"';
+        }?>>
+    </div>
+    <div class="col-lg-4">
+        <input type="text" class="form-control" placeholder="Tag" name="tags" <?php if (isset($tags)) {
+            echo 'value="'.$tags.'"';
+        }?>>
+    </div>
+    </div>
     <div class="row">
         <div class="col-xs-6">
             <textarea class="source article_content" name="content" rows="27">

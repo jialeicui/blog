@@ -2,9 +2,9 @@
     function get_gly($showing)
     {
         if ($showing != 'show') {
-            return 'glyphicon-eye-close';
+            return 'glyphicon-eye-close text-danger';
         } else {
-            return 'glyphicon-eye-open';
+            return 'glyphicon-eye-open text-admin';
         }
     }
 ?>
@@ -26,7 +26,7 @@
                 -->
                 <div class="btn-group">
                     <a class="btn btn-default" type="button" href="<?php echo site_url('status/'.$one->id);?>">
-                        <span class="glyphicon text-danger <?php echo get_gly($one->status);?>"></span>
+                        <span class="glyphicon <?php echo get_gly($one->status);?>"></span>
                     </a>
                 </div>
                 <div class="btn-group">

@@ -25,10 +25,6 @@ h2, h3, h4 {
     margin-bottom: 20px;
 }
 
-.about {
-    min-height: 300px;
-}
-
 .about_ul {
     display: block;
     padding-left: 0;
@@ -41,7 +37,7 @@ h2, h3, h4 {
 }
 
 .article_title {
-    margin-bottom: 10px;
+    width: 60%;
 }
 
 .article_content {
@@ -135,5 +131,9 @@ h2, h3, h4 {
     text-align: center;
     font-size: 12px;
     margin-bottom: 20px;
+}
+
+.blog_main {
+    min-height: 500px;
 }
 

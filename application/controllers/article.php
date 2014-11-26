@@ -8,6 +8,7 @@ class Article extends CI_Controller {
         $this->load->library('auth');
         $this->load->model('data_model');
         $this->status_key = 'status';
+        $this->tags_dispart = ',';
 
         if(!$this->auth->is_loggedin()) {
             redirect('log/login');
@@ -27,8 +28,7 @@ class Article extends CI_Controller {
     public function submit()
     {
         $post = $this->input->post();
-        $this->load->model('data_model');
-        $id = $this->data_model->save($post);
+        $id = $this->data_model->save_article($post);
         redirect('article/'.$id);
     }
 
@@ -45,6 +45,7 @@ class Article extends CI_Controller {
         $data['article_id']      = $id;
         $data['article_title']   = $query->title;
         $data['article_content'] = $query->content;
+        $data['tags']            = $this->_get_article_tags($id);
 
         $this->load->view('head', $data);
         $this->load->view('content/post', $data);
@@ -70,6 +71,12 @@ class Article extends CI_Controller {
         } else {
             return 'show';
         }
+    }
+
+    private function _get_article_tags($id)
+    {
+        $query = $this->data_model->get_article_tags($id);
+        return implode(',', $query);
     }
 }
 
