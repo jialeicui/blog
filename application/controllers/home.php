@@ -12,7 +12,7 @@ class home extends CI_Controller {
         $query = $this->data_model->get_all_article($this->_is_logged_in());
 
         $data['articles'] = $query;
-        $data['title'] = '列表';
+        $data['title'] = 'Home';
         $this->_add_log_info($data);
         $this->load->view('head', $data);
         $this->load->view('content/list', $data, FALSE);

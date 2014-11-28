@@ -7,32 +7,51 @@ class Tags extends CI_Controller {
         parent::__construct();
         $this->load->model('data_model');
     }
-    public function index($tag = NULL)
+
+    /**
+     * 入口,显示所有的tag
+     */
+    public function index()
     {
-        if ($tag) {
-            return $this->_article_with_tag($tag);
-        }
         $query = $this->data_model->get_tags();
         $data['tags'] = $query;
+        $data['title'] = 'Tags';
         $this->load->view('head', $data);
         $this->load->view('content/tags', $data, FALSE);
         $this->load->view('foot');
     }
 
-    public function _add()
-    {
-        $post = $this->input->post('tag');
-        echo '<pre>';print_r($post);echo '</pre>';
-    }
-
+    /**
+     * 显示标记tag的所有文章
+     * @param string tag 要显示的tag
+     */
     public function show($tag)
     {
         $tag = urldecode($tag);
         $query = $this->data_model->get_article_by_tag_name($tag);
         $data['articles'] = $query;
+        $data['title'] = sprintf('Tag:%s', $tag);
         $this->load->view('head', $data);
         $this->load->view('content/list', $data, FALSE);
         $this->load->view('foot');
+    }
+
+    /**
+     * 删除tag,需要管理员权限
+     * @param  string $tag 要删除的tag
+     */
+    public function remove($tag = NULL)
+    {
+        if ($tag) {
+            //验证是否有权限
+            $this->load->library('auth');
+            if(!$this->auth->is_loggedin()) {
+                redirect('log/login');
+            }
+            $tag = urldecode($tag);
+            $this->data_model->remove_tag($tag);
+            redirect(get_class($this));
+        }
     }
 }
 

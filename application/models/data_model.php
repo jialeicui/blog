@@ -147,6 +147,16 @@ class data_model extends CI_Model {
             $this->db->insert($this->tag_article_map_table, array('tag_id'=>$tag_id, 'article_id'=>$article_id));
         }
     }
+
+    public function remove_tag($tag)
+    {
+        $query = $this->db->get_where($this->tags_table, array('name'=>$tag))->row_array();
+        $tag_id = $query['id'];
+        //删除tags
+        $this->db->delete($this->tags_table, array('id'=>$tag_id));
+        //删除tag和article的对应关系
+        $this->db->delete($this->tag_article_map_table, array('tag_id'=>$tag_id));
+    }
 }
 
 /* End of file data_model.php */
