@@ -1,5 +1,5 @@
 <div>
-    <?php foreach ($tags as $iter) {?>
+    <?php foreach ($tags as $iter) { if(isset($loggedin) && $loggedin) { ?>
         <div class="btn-group">
           <button type="button" class="btn btn-tags dropdown-toggle" data-toggle="dropdown"><?php echo $iter->name;?>
             <span class="caret"></span>
@@ -12,7 +12,7 @@
             </li>
           </ul>
         </div>
-    <?php }?>
-
-    <!-- <input type="text" class="form-control article_title" placeholder="标题" name="title"> -->
+    <?php } else { ?>
+      <a href="<?php echo site_url('tags/show/'.$iter->name);?>"><?php echo $iter->name;?></a>
+    <?php } }?>
 </div>

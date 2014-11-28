@@ -13,9 +13,13 @@ class Tags extends CI_Controller {
      */
     public function index()
     {
+        $this->load->library('auth');
         $query = $this->data_model->get_tags();
-        $data['tags'] = $query;
-        $data['title'] = 'Tags';
+        
+        $data['tags']     = $query;
+        $data['title']    = 'Tags';
+        $data['loggedin'] = $this->auth->is_loggedin();
+
         $this->load->view('head', $data);
         $this->load->view('content/tags', $data, FALSE);
         $this->load->view('foot');
@@ -27,10 +31,12 @@ class Tags extends CI_Controller {
      */
     public function show($tag)
     {
-        $tag = urldecode($tag);
+        $tag   = urldecode($tag);
         $query = $this->data_model->get_article_by_tag_name($tag);
+
         $data['articles'] = $query;
-        $data['title'] = sprintf('Tag:%s', $tag);
+        $data['title']    = sprintf('Tag:%s', $tag);
+
         $this->load->view('head', $data);
         $this->load->view('content/list', $data, FALSE);
         $this->load->view('foot');
