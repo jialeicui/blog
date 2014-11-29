@@ -13,6 +13,8 @@
           </ul>
         </div>
     <?php } else { ?>
-      <a href="<?php echo site_url('tags/show/'.$iter->name);?>"><?php echo $iter->name;?></a>
+      <a type="button" class="btn-tags" href="<?php echo site_url('tags/show/'.$iter->name);?>">
+        <?php echo $iter->name;?> <span class="badge"><?php echo $iter->count;?></span>
+      </a>
     <?php } }?>
 </div>

@@ -20,6 +20,9 @@ h2, h3, h4 {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+a:hover {
+    text-decoration: none;
+}
 .about_ul {
     display: block;
     padding-left: 0;
@@ -114,9 +117,14 @@ h2, h3, h4 {
     color: #428bca;
     border-color: #428bca;
     background: none;
+    margin-left: 15px;
 }
 .btn-tags:hover, .btn-tags:focus, .btn-tags:active {
     color: #428bca;
     border-color: #428bca;
     background: none;    
+}
+.btn-tags .badge{
+    color: #428bca;
+    background-color: #eee;
 }

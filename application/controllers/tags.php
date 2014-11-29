@@ -15,6 +15,9 @@ class Tags extends CI_Controller {
     {
         $this->load->library('auth');
         $query = $this->data_model->get_tags();
+        foreach ($query as &$one) {
+            $one->count = count($this->data_model->get_article_by_tag_name($one->name));
+        }
         
         $data['tags']     = $query;
         $data['title']    = 'Tags';
