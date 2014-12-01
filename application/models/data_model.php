@@ -10,6 +10,8 @@ class data_model extends CI_Model {
         $this->tags_table            = 'tags';
         $this->about_table           = 'about';
         $this->tag_article_map_table = 'article_tag';
+        $this->proj_info_table       = 'project_info';
+        $this->proj_blabla_table     = 'project_blabla';
     }
 
     private function _get_all($table)
@@ -156,6 +158,28 @@ class data_model extends CI_Model {
         $this->db->delete($this->tags_table, array('id'=>$tag_id));
         //删除tag和article的对应关系
         $this->db->delete($this->tag_article_map_table, array('tag_id'=>$tag_id));
+    }
+
+    public function get_projects()
+    {
+        return $this->_get_all($this->proj_info_table);
+    }
+
+    public function add_project_blabla($project_id, $content)
+    {
+        $data = array('content' => $content,
+                      'project_id' => $project_id,
+                      'time' => date("Y-m-d H:i:s" ,time()));
+
+        $this->db->insert($this->proj_blabla_table, $data);
+        return $this->db->insert_id();
+    }
+
+    public function get_project_blabla($project_id)
+    {
+        return $this->db->order_by("time", "desc")
+                        ->get_where($this->proj_blabla_table, array('project_id'=>$project_id))
+                        ->result();
     }
 }
 

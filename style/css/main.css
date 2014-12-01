@@ -128,3 +128,24 @@ a:hover {
     color: #428bca;
     background-color: #eee;
 }
+.project_sidebar {
+    float: left;
+    margin: 0 0 0 -150px;
+    width: 150px;
+}
+.project_main {
+    float: left;
+    width: 100%;
+}
+.project_main_inner {
+    margin:0 160px 0 0;
+}
+.project_menu>a {
+    border-left: none;
+    border-right: none;
+    border-radius: 0 !important;
+}
+
+.project_blabla {
+    width: 100%;
+}
