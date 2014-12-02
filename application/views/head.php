@@ -8,6 +8,7 @@
         <base href="<?php echo base_url();?>" />
         <link rel="stylesheet" href="style/css/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="style/css/main.css">
+        <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     </head>
     <body>
         <div class="container col-xs-12 col-sm-6 col-md-8 col-md-offset-2 col-sm-offset-3">

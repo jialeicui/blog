@@ -64,7 +64,7 @@ class Projects extends CI_Controller {
 
         $data['title']      = sprintf('Projects');
         $data['project_id'] = $id;
-        $data['active_menu'] = 'roadmap';
+        $data['active_menu'] = __FUNCTION__;
 
         $this->load->view('head', $data);
         $this->load->view('projects/detail', $data, FALSE);
@@ -82,6 +82,36 @@ class Projects extends CI_Controller {
 
         $this->data_model->add_project_blabla($project_id, $post['blabla']);
         redirect(implode('/', array(get_class($this), 'detail', $project_id)));
+    }
+
+    public function links($id = NULL)
+    {
+        if (!$id) {
+            redirect(get_class($this));
+        }
+
+        $data['title']      = sprintf('Projects');
+        $data['project_id'] = $id;
+        $data['active_menu'] = __FUNCTION__;
+
+        $this->load->view('head', $data);
+        $this->load->view('projects/links', $data, FALSE);
+        $this->load->view('foot');
+    }
+
+    public function schedule($id = NULL)
+    {
+        if (!$id) {
+            redirect(get_class($this));
+        }
+
+        $data['title']      = sprintf('Projects');
+        $data['project_id'] = $id;
+        $data['active_menu'] = __FUNCTION__;
+
+        $this->load->view('head', $data);
+        $this->load->view('projects/schedule', $data, FALSE);
+        $this->load->view('foot');
     }
 }
 

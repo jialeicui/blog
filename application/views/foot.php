@@ -11,7 +11,6 @@
           </footer>
       </div>
   <link rel="stylesheet" href="style/css/solarized_light.css">
-	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
   <script src="style/css/bootstrap/js/bootstrap.min.js"></script>
 	<script src="style/js/highlight.min.js"></script>
 	<script src="style/js/remarkable.js"></script>
