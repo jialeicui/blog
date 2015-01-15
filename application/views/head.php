@@ -17,16 +17,26 @@
                     <li role="presentation"><a href="<?php echo site_url('tags');?>">Tags</a></li>
                     <li role="presentation"><a href="<?php echo site_url('about');?>">About</a></li>
                     <?php if (isset($loggedin) && $loggedin) { ?>
+                        <!-- 登出 -->
                         <li role="presentation" class="pull-right">
                             <a href="<?php echo site_url('log/logout');?>">
                                 <div class="text-danger"><span class="glyphicon glyphicon-off"></span></div>
                             </a>
                         </li>
+                        <!-- 添加文章 -->
                         <li role="presentation" class="pull-right">
                             <a href="<?php echo site_url('post');?>">
                                 <div class="text-admin"><span class="glyphicon glyphicon-plus"></span></div>
                             </a>
                         </li>
+                        <!-- 编辑文章 -->
+                        <?php if (isset($article_id)) { ?>
+                        <li role="presentation" class="pull-right">
+                            <a href="<?php echo site_url('edit/'.$article_id);?>">
+                                <div class="text-admin"><span class="glyphicon glyphicon-edit"></span></div>
+                            </a>
+                        </li>
+                        <?php } ?>
                     <?php }else{ ?>
                         <li role="presentation" class="pull-right">
                             <a href="<?php echo site_url('post');?>">

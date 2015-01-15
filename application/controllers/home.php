@@ -26,6 +26,7 @@ class home extends CI_Controller {
             die("no article");
         }
 
+        $data['article_id'] = $id;
         $data['title'] = $query->title;
         $data['content'] = $this->_get_content($query->title, $query->content);
         $this->_add_log_info($data);
