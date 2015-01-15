@@ -116,6 +116,9 @@ class data_model extends CI_Model {
     private function _save_tags_of_article($article_id, $tags)
     {
         $tags = explode(',', $tags);
+        foreach ($tags as &$t) {
+            $t = trim($t);
+        }
         $old_tags = $this->get_article_tags($article_id, array('name', 'id'));
 
         $to_rm = array();
@@ -137,6 +140,10 @@ class data_model extends CI_Model {
 
         //add tags
         foreach ($tags as $t) {
+            //if tag is null, will not save
+            if (!$t) {
+                continue;
+            }
             $query = $this->db->get_where($this->tags_table, array('name'=>$t))->result_array();
             if (count($query)== 0) {
                 $this->db->insert($this->tags_table, array('name'=>$t));

@@ -59,8 +59,8 @@ class Tags extends CI_Controller {
             }
             $tag = urldecode($tag);
             $this->data_model->remove_tag($tag);
-            redirect(get_class($this));
         }
+        redirect(get_class($this));
     }
 }
 
