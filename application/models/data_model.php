@@ -116,8 +116,8 @@ class data_model extends CI_Model {
     private function _save_tags_of_article($article_id, $tags)
     {
         $tags = explode(',', $tags);
-        foreach ($tags as &$t) {
-            $t = trim($t);
+        foreach ($tags as $key => $value) {
+            $tags[$key] = trim($value);
         }
         $old_tags = $this->get_article_tags($article_id, array('name', 'id'));
 
