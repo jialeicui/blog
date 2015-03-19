@@ -27,6 +27,21 @@ h2, h3, h4 {
 a:hover {
     text-decoration: none;
 }
+
+/* bootstrap table */
+.table {
+    border:1px solid #E3EDF3;
+}
+.table th,td {
+    border:1px solid #E3EDF3;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color:#F7FAFB
+}
+.table>thead>tr>th {
+    border-bottom: none;
+}
+
 .about_ul {
     display: block;
     padding-left: 0;
@@ -77,13 +92,7 @@ a:hover {
 .text-login {
     color: #FFF;
 }
-/* bootstrap table */
-.table {
-    border:1px solid #ddd;
-}
-.table th,td {
-    border:1px solid #ddd;
-}
+
 .show_article {
     margin-left: 10px;
     margin-right: 10px;
