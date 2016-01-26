@@ -86,9 +86,9 @@ class data_model extends CI_Model {
             return $ret;
         }
 
-        $qstr = sprintf('select A.id,A.title from %s as A,%s as M where A.id=M.article_id and M.tag_id=%s',
-                        $this->articles_table, $this->tag_article_map_table, $tag_info->id);
-        $query = $this->db->query($qstr)->result();
+        $qstr = sprintf('select A.id,A.title from %s as A,%s as M where A.id=M.article_id and M.tag_id=?',
+                        $this->articles_table, $this->tag_article_map_table);
+        $query = $this->db->query($qstr, array($tag_info->id))->result();
 
         return $query;
     }
@@ -100,9 +100,9 @@ class data_model extends CI_Model {
         }
         $query_keys = 'T.'.implode(',T.', $keys);
 
-        $qstr = sprintf('select %s from %s as T,%s as M where T.id=M.tag_id and M.article_id=%s', 
-                        $query_keys, $this->tags_table, $this->tag_article_map_table, $article_id);
-        $query = $this->db->query($qstr)->result_array();
+        $qstr = sprintf('select %s from %s as T,%s as M where T.id=M.tag_id and M.article_id=?', 
+                        $query_keys, $this->tags_table, $this->tag_article_map_table);
+        $query = $this->db->query($qstr, array($article_id))->result_array();
         if (count($keys) == 1) {
             $ret = array();
             foreach ($query as $iter) {
@@ -133,9 +133,9 @@ class data_model extends CI_Model {
 
         //remove tags
         if ($to_rm) {
-            $qstr = sprintf('delete from %s where tag_id in (%s) and article_id=%s', 
-                            $this->tag_article_map_table, implode(',', $to_rm), $article_id);
-            $this->db->query($qstr);
+            $qstr = sprintf('delete from %s where tag_id in (%s) and article_id=?', 
+                            $this->tag_article_map_table, implode(',', $to_rm), );
+            $this->db->query($qstr, array($article_id));
         }
 
         //add tags
